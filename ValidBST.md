@@ -1,3 +1,6 @@
+# Validate Binary Search Tree
+
+```cpp
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -11,15 +14,13 @@
  */
 class Solution {
 public:
-
-    bool check(TreeNode* curr, long long low, long long high)
-    {
-        if(!curr)
+    bool check(TreeNode* curr, long long low, long long high) {
+        if (!curr)
             return true;
 
-        if(low>=curr->val || high<=curr->val)
+        if (low >= curr->val || high <= curr->val)
             return false;
-        
+
         return check(curr->left, low, curr->val) && check(curr->right, curr->val, high);
     }
 
